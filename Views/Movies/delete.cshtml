@@ -1,0 +1,14 @@
+@model project_asp_net.Models.Movie
+
+<h2>Supprimer le Film</h2>
+
+<h3>Es-tu sûr de vouloir supprimer ce film ?</h3>
+
+<div>
+    <p><strong>@Model.title</strong> - @Model.genre</p>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="id" />
+    <button type="submit">Confirmer</button>
+</form>

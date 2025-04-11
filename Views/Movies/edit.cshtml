@@ -1,0 +1,11 @@
+@model project_asp_net.Models.Movie
+
+<h2>Edit Movie</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="id" />
+    <label>Title</label>
+    <input asp-for="title" /><br/>
+    <label>Genre</label>
+    <input asp-for="genre" /><br/>
+    <button type="submit">Update</button>
+</form>
