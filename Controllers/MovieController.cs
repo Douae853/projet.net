@@ -1,35 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using project_asp_net.Models;
 
-namespace project_asp_net.Controllers
+public class MoviesController : Controller
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class MovieController : ControllerBase
+    private readonly MovieContext _context;
+
+    public MoviesController(MovieContext context)
     {
-        private readonly MovieContext _context;
+        _context = context;
+    }
 
-        public MovieController(MovieContext context)
-        {
-            _context = context;
-        }
+    public IActionResult Index()
+    {
+        var movies = _context.Movies.ToList();
+        return View(movies);
+    }
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
 
-        // GET: api/movie
-        [HttpGet]
-        public async Task<IActionResult> GetMovies()
-        {
-            var movies = await _context.Movies.ToListAsync();
-            return Ok(movies);
-        }
-
-        // POST: api/movie
-        [HttpPost]
-        public async Task<IActionResult> AddMovie(Movie movie)
+// Traite l'envoi du formulaire
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Create(Movie movie)
+    {
+        if (ModelState.IsValid)
         {
             _context.Movies.Add(movie);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetMovies), new { id = movie.id }, movie);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
+        return View(movie);
+        
     }
 }

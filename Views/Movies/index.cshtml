@@ -1,0 +1,78 @@
+@model IEnumerable<project_asp_net.Models.Movie>
+
+@{
+    ViewData["Title"] = "Liste des Films";
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .movie-table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .movie-table th,
+        .movie-table td {
+            padding: 15px 20px;
+            text-align: left;
+        }
+
+        .movie-table thead {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .movie-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .movie-table tbody tr:hover {
+            background-color: #e0f7ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>@ViewData["Title"]</h1>
+
+    <table class="movie-table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>titre</th>
+                <th>genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@movie.id</td>
+                    <td>@movie.title</td>
+                    <td>@movie.genre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
