@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Bureau\\mes_projet\\project_asp-net\\project_asp-net.csproj": {}
+    "E:\\Shared DATA\\S8\\linux\\demo App\\projet\\projet.net\\project_asp-net.csproj": {}
   },
   "projects": {
-    "D:\\Bureau\\mes_projet\\project_asp-net\\project_asp-net.csproj": {
+    "E:\\Shared DATA\\S8\\linux\\demo App\\projet\\projet.net\\project_asp-net.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Bureau\\mes_projet\\project_asp-net\\project_asp-net.csproj",
+        "projectUniqueName": "E:\\Shared DATA\\S8\\linux\\demo App\\projet\\projet.net\\project_asp-net.csproj",
         "projectName": "project_asp-net",
-        "projectPath": "D:\\Bureau\\mes_projet\\project_asp-net\\project_asp-net.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "D:\\Bureau\\mes_projet\\project_asp-net\\obj\\",
+        "projectPath": "E:\\Shared DATA\\S8\\linux\\demo App\\projet\\projet.net\\project_asp-net.csproj",
+        "packagesPath": "C:\\Users\\mohamed\\.nuget\\packages\\",
+        "outputPath": "E:\\Shared DATA\\S8\\linux\\demo App\\projet\\projet.net\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,11 +37,22 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.2.0, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

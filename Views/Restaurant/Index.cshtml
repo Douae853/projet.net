@@ -1,0 +1,21 @@
+@model List<Restaurant>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants</title>
+</head>
+<body>
+    <h1>List of Restaurants</h1>
+    <ul>
+        @foreach (var restaurant in Model)
+        {
+            <li>
+                <strong>@restaurant.Nom</strong> - @restaurant.Adresse
+            </li>
+        }
+    </ul>
+</body>
+</html>
