@@ -1,4 +1,4 @@
-@model List<projet.net.Models.Employee>
+@model List<projet.net.Models.Employee>  // Make sure this matches the namespace
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,6 @@
                 <th>Prénom</th>
                 <th>Rôle</th>
                 <th>Restaurant</th>
-                <th>Change Role</th>
             </tr>
         </thead>
         <tbody>
@@ -26,19 +25,7 @@
                     <td>@employee.Nom</td>
                     <td>@employee.Prenom</td>
                     <td>@employee.Poste</td>
-                    <td>@employee.RestaurantNom</td>
-                    <td>
-                        <!-- Form for changing the role of the employee -->
-                        <form method="post" asp-action="ChangeRole" asp-route-id="@employee.Id">
-                            <select name="role">
-                                <option value="hotesse" @if (employee.Poste == "hotesse") { <text>selected</text> }>Hotesse</option>
-                                <option value="serveur" @if (employee.Poste == "serveur") { <text>selected</text> }>Serveur</option>
-                                <option value="admin" @if (employee.Poste == "admin") { <text>selected</text> }>Admin</option>
-                            </select>
-
-                            <button type="submit">Update Role</button>
-                        </form>
-                    </td>
+                    <td>@employee.IdRestaurant</td>
                 </tr>
             }
         </tbody>

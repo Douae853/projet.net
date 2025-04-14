@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using projet.net.Models;    // Make sure the model is imported
-using projet.net.Services;  // Make sure the service is imported
+using projet.net.Services;
 using System.Threading.Tasks;
- 
- 
+
 public class EmployeeController : Controller
 {
     private readonly EmployeeService _employeeService;
@@ -27,10 +26,10 @@ public class EmployeeController : Controller
         // Ensure the newRole is valid before proceeding
         if (string.IsNullOrEmpty(newRole) || (newRole != "hotesse" && newRole != "serveur" && newRole != "admin"))
         {
-            return BadRequest("Invalid role");
+            return BadRequest("Invalid role.");
         }
 
-        // Call the service to update the role in the database
+        // Attempt to update the role in the database
         var success = await _employeeService.UpdateEmployeeRoleAsync(id, newRole);
 
         if (success)
@@ -39,6 +38,7 @@ public class EmployeeController : Controller
             return RedirectToAction("Index");
         }
 
-        return BadRequest("Error updating role");
+        // If update fails, return a BadRequest
+        return NotFound("Employee not found or unable to update the role.");
     }
 }
