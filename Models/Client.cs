@@ -18,7 +18,7 @@ namespace project_asp_net.Models
         public string Email { get; set; }
         public int Téléphone { get; set; }
         public string ville { get; set; }
-        //public int ProgrammeFidelite { get; set; }
+        public int ProgrammeFidelite { get; set; }
         
     }
 }
