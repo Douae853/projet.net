@@ -10,7 +10,9 @@ builder.Services.AddDbContext<MovieContext>(options =>
 builder.Services.AddDbContext<ClientContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 36))));
-
+builder.Services.AddDbContext<EmployeeContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 36))));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

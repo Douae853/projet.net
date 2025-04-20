@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Bureau\\mes_projet\\project_asp-net\\project_asp-net.csproj": {}
+    "C:\\Users\\mohamed\\Desktop\\last\\projet.net\\project_asp-net.csproj": {}
   },
   "projects": {
-    "D:\\Bureau\\mes_projet\\project_asp-net\\project_asp-net.csproj": {
+    "C:\\Users\\mohamed\\Desktop\\last\\projet.net\\project_asp-net.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Bureau\\mes_projet\\project_asp-net\\project_asp-net.csproj",
+        "projectUniqueName": "C:\\Users\\mohamed\\Desktop\\last\\projet.net\\project_asp-net.csproj",
         "projectName": "project_asp-net",
-        "projectPath": "D:\\Bureau\\mes_projet\\project_asp-net\\project_asp-net.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "D:\\Bureau\\mes_projet\\project_asp-net\\obj\\",
+        "projectPath": "C:\\Users\\mohamed\\Desktop\\last\\projet.net\\project_asp-net.csproj",
+        "packagesPath": "C:\\Users\\mohamed\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mohamed\\Desktop\\last\\projet.net\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -60,6 +67,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.13, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
@@ -85,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
