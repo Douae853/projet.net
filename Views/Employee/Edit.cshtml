@@ -8,7 +8,8 @@
 
 <h4>Employee</h4>
 <hr />
-<form method="post">
+
+<form asp-action="Edit">
     <div class="form-group">
         <label asp-for="Nom" class="control-label"></label>
         <input asp-for="Nom" class="form-control" />
@@ -29,5 +30,11 @@
         <input asp-for="Role" class="form-control" />
         <span asp-validation-for="Role" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <div class="form-group">
+        <label for="Tables">Tables (comma-separated)</label>
+        <input type="text" id="Tables" name="Tables" class="form-control" value="@string.Join(",", Model.Tables)" />
+        <span asp-validation-for="Tables" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
 </form>

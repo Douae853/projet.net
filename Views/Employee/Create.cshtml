@@ -4,30 +4,33 @@
     ViewData["Title"] = "Create Employee";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1>Create Employee</h1>
 
-<h4>Employee</h4>
-<hr />
-<form method="post">
+<form asp-action="Create" method="post">
     <div class="form-group">
-        <label asp-for="Nom" class="control-label"></label>
+        <label asp-for="Nom"></label>
         <input asp-for="Nom" class="form-control" />
-        <span asp-validation-for="Nom" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Prenom" class="control-label"></label>
+        <label asp-for="Prenom"></label>
         <input asp-for="Prenom" class="form-control" />
-        <span asp-validation-for="Prenom" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Telephone" class="control-label"></label>
+        <label asp-for="Telephone"></label>
         <input asp-for="Telephone" class="form-control" />
-        <span asp-validation-for="Telephone" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Role" class="control-label"></label>
+        <label asp-for="Role"></label>
         <input asp-for="Role" class="form-control" />
-        <span asp-validation-for="Role" class="text-danger"></span>
     </div>
+
+    <div class="form-group">
+        <label>Tables (comma-separated)</label>
+        <input type="text" class="form-control" id="tablesInput" name="tablesInput" />
+    </div>
+
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
+
+
+<a href="@Url.Action("Index")">Back to List</a>

@@ -32,23 +32,45 @@ namespace project_asp_net.Controllers
 
         // GET: Employee/Create
         public IActionResult Create()
-        {
-            return View();
-        }
+{
+    var employee = new Employee
+    {
+        Tables = new List<int>() // Ensure it's not null
+    };
+    return View(employee);
+}
 
         // POST: Employee/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nom,Prenom,Telephone,Role")] Employee employee)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(employee);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(employee);
-        }
+     [HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Create(
+    [Bind("Id,Nom,Prenom,Telephone,Role")] Employee employee,
+    string tablesInput)
+{
+    if (!string.IsNullOrEmpty(tablesInput))
+    {
+        employee.Tables = tablesInput
+            .Split(',', StringSplitOptions.RemoveEmptyEntries)
+            .Select(t => int.TryParse(t.Trim(), out var num) ? num : (int?)null)
+            .Where(t => t.HasValue)
+            .Select(t => t.Value)
+            .ToList();
+    }
+    else
+    {
+        employee.Tables = new List<int>();
+    }
+
+    if (ModelState.IsValid)
+    {
+        _context.Add(employee);
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+    return View(employee);
+}
+
+
 
         // GET: Employee/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -62,28 +84,37 @@ namespace project_asp_net.Controllers
         }
 
         // POST: Employee/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nom,Prenom,Telephone,Role")] Employee employee)
-        {
-            if (id != employee.Id) return NotFound();
+     [HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Edit(int id, [Bind("Id,Nom,Prenom,Telephone,Role,Tables")] Employee employee, string Tables)
+{
+    if (id != employee.Id) return NotFound();
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(employee);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!EmployeeExists(employee.Id)) return NotFound();
-                    else throw;
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(employee);
+    if (ModelState.IsValid)
+    {
+        if (!string.IsNullOrEmpty(Tables))
+        {
+            employee.Tables = Tables.Split(',')
+                                     .Select(t => int.TryParse(t.Trim(), out int table) ? table : 0)
+                                     .Where(t => t > 0)
+                                     .ToList();
         }
+
+        try
+        {
+            _context.Update(employee);
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!EmployeeExists(employee.Id)) return NotFound();
+            else throw;
+        }
+        return RedirectToAction(nameof(Index));
+    }
+    return View(employee);
+}
+
 
         // GET: Employee/Delete/5
         public async Task<IActionResult> Delete(int? id)
