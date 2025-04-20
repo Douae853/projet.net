@@ -18,8 +18,13 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.13">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+<<<<<<< HEAD
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+=======
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+>>>>>>> 9dab544a5ab6f87fb887b4bede094d3e0f7c4275
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

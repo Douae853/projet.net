@@ -14,6 +14,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddDbContext<ClientContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 36))));
+<<<<<<< HEAD
 builder.Services.AddDbContext<ReservationContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 36))));
@@ -25,6 +26,11 @@ builder.Services.AddDbContext<project_asp_netContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 36))));
 
+=======
+builder.Services.AddDbContext<EmployeeContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 36))));
+>>>>>>> 9dab544a5ab6f87fb887b4bede094d3e0f7c4275
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

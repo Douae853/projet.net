@@ -1,0 +1,40 @@
+@model project_asp_net.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Employee</h4>
+<hr />
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Nom" class="control-label"></label>
+        <input asp-for="Nom" class="form-control" />
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenom" class="control-label"></label>
+        <input asp-for="Prenom" class="form-control" />
+        <span asp-validation-for="Prenom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Telephone" class="control-label"></label>
+        <input asp-for="Telephone" class="form-control" />
+        <span asp-validation-for="Telephone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Role" class="control-label"></label>
+        <input asp-for="Role" class="form-control" />
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Tables">Tables (comma-separated)</label>
+        <input type="text" id="Tables" name="Tables" class="form-control" value="@string.Join(",", Model.Tables)" />
+        <span asp-validation-for="Tables" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

@@ -1,0 +1,50 @@
+@model IEnumerable<project_asp_net.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nom)</th>
+            <th>@Html.DisplayNameFor(model => model.Prenom)</th>
+            <th>@Html.DisplayNameFor(model => model.Telephone)</th>
+            <th>@Html.DisplayNameFor(model => model.Role)</th>
+            <th>Tables</th> <!-- Add this column for Tables -->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nom)</td>
+            <td>@Html.DisplayFor(modelItem => item.Prenom)</td>
+            <td>@Html.DisplayFor(modelItem => item.Telephone)</td>
+            <td>@Html.DisplayFor(modelItem => item.Role)</td>
+            <td>
+                @if (item.Tables != null && item.Tables.Any())
+                {
+                    @string.Join(", ", item.Tables) <!-- Display Tables as a comma-separated string -->
+                }
+                else
+                {
+                    <span>No tables assigned</span>
+                }
+            </td>
+            <td>
+                <a href="@Url.Action("Details", new { id = item.Id })">Details</a> |
+                <a href="@Url.Action("Edit", new { id = item.Id })">Edit</a> |
+                <a href="@Url.Action("Delete", new { id = item.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

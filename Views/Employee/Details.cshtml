@@ -1,0 +1,25 @@
+@model project_asp_net.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>@Model.Nom @Model.Prenom</dd>
+        <dt>Telephone</dt>
+        <dd>@Model.Telephone</dd>
+        <dt>Role</dt>
+        <dd>@Model.Role</dd>
+    </dl>
+    <p>
+        <a href="@Url.Action("Edit", new { id = Model.Id })">Edit</a> |
+        <a href="@Url.Action("Delete", new { id = Model.Id })">Delete</a> |
+        <a href="@Url.Action("Index")">Back to List</a>
+    </p>
+</div>
